@@ -1,0 +1,16 @@
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.wrapper_terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+a {
+  color: #007bff;
+  text-decoration: underline;
+}

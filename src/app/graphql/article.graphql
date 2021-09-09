@@ -1,0 +1,25 @@
+query pageQuery($path: String = "") {
+  route(path: $path) {
+    ... on EntityCanonicalUrl {
+      breadcrumb {
+        text
+        url {
+          path
+          routed
+        }
+      }
+      entity {
+        __typename
+        ... on NodePageArticle {
+          title: title 
+          }
+      }
+    }
+    ... on RedirectUrl {
+      code
+      target {
+        path
+      }
+    }
+  }
+}

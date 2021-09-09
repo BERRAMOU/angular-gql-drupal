@@ -1,0 +1,18 @@
+query menuQuery($name: String = "main") {
+  menu: menuByName(name: $name) {
+    sections: links {
+      expanded
+      title: label
+      url {
+        path
+      }
+      links {
+        expanded
+        title: label
+        url {
+          path
+        }
+      }
+    }
+  }
+}

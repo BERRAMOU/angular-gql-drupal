@@ -1,0 +1,19 @@
+nav {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+ul {
+  display: block;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #003250;
+}
