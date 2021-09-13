@@ -1,8 +1,13 @@
 <ng-container *ngIf="article$|async as article">
-  <ul class="breadcrumb">
-    <li *ngFor="let breadcrumbItem of article.route.breadcrumb">
-      <a href="#"> {{breadcrumbItem.text}} </a>
-    </li>
-  </ul>
-  <h2> {{article.route.entity.title}}</h2>
+  <div class="wrapper_article">
+    <h2> {{article.nodeById.title}}</h2>
+    <img [src]="article.nodeById.image?.url" [alt]="article.nodeById.image.alt"/>
+    <div [innerHTML]="article.nodeById.body.processed"></div>
+    <h3> List of article tags </h3>
+    <ul>
+      <li *ngFor="let tag of article.nodeById.tags">
+        <a [href]="tag?.entity?.url?.path" target="_blank"> {{tag.entity?.name}} </a>
+      </li>
+    </ul>
+  </div>
 </ng-container>

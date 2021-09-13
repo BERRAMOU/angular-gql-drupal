@@ -1,17 +1,17 @@
-export class TermQuery {
+export class TagQuery {
   taxonomyTermQuery!: TaxonomyTermQuery;
 }
 
 export class TaxonomyTermQuery {
-  entities!: Term[];
+  tags!: Tag[];
 }
 
-export class Term {
+export class Tag {
   tid!: number;
   name!: string;
-  url!: TermUrl;
+  url!: TagUrl;
 }
 
-export class TermUrl {
+export class TagUrl {
   path!: string;
 }

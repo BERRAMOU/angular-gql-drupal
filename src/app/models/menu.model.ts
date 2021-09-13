@@ -3,10 +3,6 @@ export class MenuQuery {
 }
 
 export class Menu {
-  sections!: Section[];
-}
-
-export class Section {
   links!: Link[];
 }
 

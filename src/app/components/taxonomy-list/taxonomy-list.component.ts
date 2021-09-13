@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Apollo } from "apollo-angular";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { TermQuery, Term } from "../../models/term.model";
-import taxonomyQuery from "../../graphql/taxonomy.graphql"
+import { TagQuery, Tag } from "../../models/tag.model";
+import taxonomyTermTagQuery from "../../graphql/tags.graphql"
 
 @Component({
   selector: "taxonomy-list",
@@ -11,16 +11,16 @@ import taxonomyQuery from "../../graphql/taxonomy.graphql"
   styleUrls: ['./taxonomy-list.component.css']
 })
 export class TaxonomyListComponent implements OnInit {
-  terms$!: Observable<Term[]>;
+  tags$!: Observable<Tag[]>;
 
-  constructor(private apollo: Apollo) {
-  }
+  constructor(private apollo: Apollo) {}
 
   ngOnInit() {
-    this.terms$ = this.apollo
-      .watchQuery<TermQuery>({
-        query: taxonomyQuery
+    this.tags$ = this.apollo
+      .watchQuery<TagQuery>({
+        query: taxonomyTermTagQuery,
+        errorPolicy: 'all'
       })
-      .valueChanges.pipe(map(result => result.data.taxonomyTermQuery.entities));
+      .valueChanges.pipe(map(result => result.data.taxonomyTermQuery.tags));
   }
 }

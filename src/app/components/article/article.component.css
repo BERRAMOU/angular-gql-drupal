@@ -1,25 +1,20 @@
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
+.wrapper_article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 15% 0 15%;
 }
 
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
+li {
+  list-style: square;
 }
 
-ul.breadcrumb li + li:before {
-  padding: 8px;
-  color: #75F0A7;
-  content: "\003E";
-}
-
-ul.breadcrumb li a {
-  color: #606060;
-  text-decoration: none;
-}
-
-ul.breadcrumb li a:hover {
-  color: #606060;
+li a {
+  color: #007bff;
   text-decoration: underline;
+}
+
+img {
+  height: 200px;
 }

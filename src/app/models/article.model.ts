@@ -1,23 +1,27 @@
+import { Tag } from "./tag.model";
+
 export class ArticleQuery {
-  route!: Route;
+  nodeById!: Node;
 }
 
-export class Route {
-  breadcrumb!: BreadcrumbItem[];
-  entity!: EntityData
-}
-
-export class EntityData {
+export class Node {
   title!: string;
+  body!: Body;
+  image!: Image;
+  tags!: TagItem[]
 }
 
-export class BreadcrumbItem {
-  text!: string;
-  url!: urlItem
+export class Body {
+  value!: string;
+  format!: string
+  processed!: string
 }
 
-export class urlItem {
-  path!: string
-  routed!: boolean
+export class Image {
+  url!: string;
+  alt!: string;
 }
 
+export class TagItem {
+  entity!: Tag
+}

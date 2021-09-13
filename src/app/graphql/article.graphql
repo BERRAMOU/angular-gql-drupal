@@ -1,24 +1,26 @@
-query pageQuery($path: String = "") {
-  route(path: $path) {
-    ... on EntityCanonicalUrl {
-      breadcrumb {
-        text
-        url {
-          path
-          routed
+query articleQuery($id: String = "") {
+  nodeById(id: $id) {
+    ... on NodeArticle {
+      title: title
+      body {
+        value
+        format
+        processed
+      }
+      tags: fieldTags {
+        entity {
+          ... on TaxonomyTermTags {
+            name
+            tid
+            url: entityUrl {
+              path
+            }
+          }
         }
       }
-      entity {
-        __typename
-        ... on NodePageArticle {
-          title: title 
-          }
-      }
-    }
-    ... on RedirectUrl {
-      code
-      target {
-        path
+      image: fieldImage {
+        url
+        alt
       }
     }
   }

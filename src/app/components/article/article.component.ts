@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { ArticleQuery } from 'src/app/models/article.model';
-import pageQuery from "../../graphql/article.graphql"
+import articleQuery from "../../graphql/article.graphql"
 import { map } from "rxjs/operators";
 import { ActivatedRoute } from "@angular/router";
 
@@ -19,12 +19,12 @@ export class ArticleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const url = this.route.snapshot.paramMap.get('url');
+    const id = this.route.snapshot.paramMap.get('id');
     this.article$ = this.apollo
       .watchQuery<ArticleQuery>({
-        query: pageQuery,
+        query: articleQuery,
         variables: {
-          path: url,
+          id: id,
         },
       })
       .valueChanges.pipe(map(result => result.data));

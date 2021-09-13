@@ -1,9 +1,9 @@
-<ng-container *ngIf="terms$|async as terms">
+<ng-container *ngIf="tags$|async as tags">
   <div class="wrapper_terms">
-    <h1> List of theme taxonomy terms </h1>
+    <h1> List of tags </h1>
     <ul>
-      <li *ngFor="let term of terms">
-        {{ term.tid }} - <a [href]="term.url.path"> {{ term.name }} </a>
+      <li *ngFor="let tag of tags">
+        {{ tag.tid }} - <a [href]="tag.url.path"> {{ tag.name }} </a>
       </li>
     </ul>
   </div>

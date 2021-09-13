@@ -1,7 +1,9 @@
 <ng-container *ngIf="menu$|async as menu">
   <nav>
-    <ul *ngFor="let section of menu.sections">
-      <li *ngFor="let link of section.links"><a [href]="link.url.path"> {{ link.title }} </a></li>
+    <ul>
+      <li *ngFor="let link of menu.links">
+        <a [href]="link.url.path"> {{ link.title }} </a>
+      </li>
     </ul>
   </nav>
 </ng-container>
